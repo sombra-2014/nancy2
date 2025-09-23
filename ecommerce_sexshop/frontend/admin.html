@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Tienda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="body-padding">
+    
+    <div id="header-container"></div>
+
+    <main>
+        <div class="admin-container">
+            <h2>Panel de Administrador</h2>
+
+            <section id="products-section">
+                <h3>Administrar Productos</h3>
+                <button id="add-product-btn">Agregar Nuevo Producto</button>
+                <form id="product-form" class="form-hidden">
+                    <input type="hidden" id="product-id">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="price">Precio:</label>
+                    <input type="number" id="price" name="price" required>
+                    <label for="category">Categoría:</label>
+                    <select id="category" name="category" required>
+                        <option value="">Selecciona una categoría</option>
+                        <option value="lubricantes">Lubricantes</option>
+                        <option value="juguetes">Juguetes</option>
+                        <option value="lenceria">Lencería</option>
+                        <option value="accesorios">Accesorios</option>
+                    </select>
+                    <label for="description">Descripción:</label>
+                    <textarea id="description" name="description"></textarea>
+                    <label for="stock">Stock:</label>
+                    <input type="number" id="stock" name="stock" required>
+                    
+                    <label for="image">Imágenes:</label>
+                    <input type="file" id="image" name="images[]" multiple>
+
+                    <button type="submit" id="save-product-btn">Guardar Producto</button>
+                    <button type="button" id="cancel-edit-btn">Cancelar</button>
+                </form>
+                <table id="product-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+    
+    <script src="js/header.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

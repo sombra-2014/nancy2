@@ -1,0 +1,837 @@
+/* Paleta de Colores:
+   - Blanco principal: #fcfcfc
+   - Rosa principal: #ff69b4 (Hot Pink)
+   - Contornos y texto oscuro: #333333
+*/
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fcfcfc;
+}
+
+.product-card {
+    background-color: #2c2c2c;
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.product-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(255, 105, 180, 0.5);
+}
+
+.product-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 15px;
+}
+
+.body-padding {
+    padding-top: 20px;
+}
+
+/* --- CAMBIO: NUEVOS ESTILOS DEL ENCABEZADO --- */
+header {
+    background-color: #ff69b4;
+    color: #fcfcfc;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-nav {
+    position: absolute;
+    top: 25px; /* Ajusta la posición vertical de la navegación */
+    right: 20px;
+    z-index: 1001;
+}
+
+.logo-title-container {
+    text-align: center;
+}
+
+.logo-title {
+    margin: 0;
+    font-size: 2.2em; /* Tamaño del título */
+    font-family: 'Parisienne', cursive;
+    color: #fcfcfc;
+}
+
+.logo-title .fas {
+    color: #ff3385; /* Un rosa más vibrante para los iconos */
+    font-size: 0.9em;
+    margin: 0 5px;
+}
+
+nav a {
+    color: #fcfcfc;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 1em;
+}
+/* ------------------------------------------------ */
+
+nav a:hover {
+    color: #333333;
+}
+
+.category-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    border: 2px solid #ff69b4;
+    background-color: #fcfcfc;
+    color: #ff69b4;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.category-btn:hover {
+    background-color: #ff69b4;
+    color: #fcfcfc;
+}
+
+.category-btn.active {
+    background-color: #ff69b4;
+    color: #fcfcfc;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+/* --- Carrusel --- */
+/* --- Carrusel --- */
+.carousel-container {
+    position: relative;
+    width: 600%;
+    max-width: 100px; /* CAMBIO AQUÍ: Reduce este valor para hacerlo más angosto */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    height: 300px; 
+}
+
+.carousel {
+    display: flex;
+    height: 100%; /* <--- CAMBIO: Asegura que el carrusel ocupe toda la altura */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%; /* <--- CAMBIO: La imagen ocupará toda la altura del contenedor */
+    object-fit: cover; /* <--- CAMBIO CLAVE: Mantiene la forma y llena el espacio */
+    display: block;
+}
+
+/* ...el resto del código del carrusel sigue igual... */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: var(--accent-color);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+#product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-bottom: 2px solid #ff69b4;
+}
+
+.product-link.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.whatsapp-btn {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #25D366;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-size: 1em;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
+
+.in-stock {
+    color: #008000;
+    font-weight: bold;
+}
+
+.out-of-stock {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.product-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #2c2c2c;
+    padding: 30px;
+    border: 2px solid #ff69b4;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-gallery {
+    width: 100%;
+    max-width: 500px;
+}
+
+#main-product-image {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #ff69b4;
+    object-fit: contain;
+}
+
+#thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#thumbnail-gallery img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+#thumbnail-gallery img:hover {
+    border-color: #ff69b4;
+    transform: scale(1.1);
+}
+
+.product-info {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.product-info h2 {
+    font-size: 2.2em;
+    color: #ff69b4;
+    margin-bottom: 10px;
+}
+
+.price-detail {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fcfcfc;
+}
+
+.add-to-cart-btn {
+    background-color: #ff69b4;
+    color: #fcfcfc;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e55099;
+    transform: scale(1.05);
+}
+
+.add-to-cart-btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.admin-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2c2c2c;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-form-container, .product-list-container {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px dashed #ff69b4;
+    border-radius: 15px;
+}
+
+.product-form-container h3, .product-list-container h3 {
+    color: #ff69b4;
+    text-align: center;
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fcfcfc;
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    outline: none;
+    border-color: #ff69b4;
+}
+
+form button {
+    background-color: #333333;
+    color: #fcfcfc;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #ff69b4;
+}
+
+#product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #333333;
+}
+
+#product-table th, #product-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#product-table th {
+    background-color: #ff69b4;
+    color: #fcfcfc;
+    font-weight: bold;
+}
+
+#product-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.edit-btn, .delete-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.edit-btn {
+    background-color: #3498db;
+    margin-right: 5px;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.edit-btn:hover { background-color: #2980b9; }
+.delete-btn:hover { background-color: #c0392b; }
+
+#images-preview img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ff69b4;
+    border-radius: 5px;
+}
+
+
+
+/* Contenedor principal del encabezado */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 4px;
+    background-color: #ff69b4; /* Un fondo para que el texto blanco resalte */
+}
+
+/* Estilo para los enlaces de navegación */
+.header-nav nav ul {
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* ¡Esto es lo que los pone en una fila! */
+}
+
+.header-nav nav li {
+    margin-right: 20px; /* Espacio entre los enlaces */
+}
+
+.nav-link {
+    color: white; /* Color del texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1.1em;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.nav-link:hover {
+    color: #f8c3cd; /* Cambia de color al pasar el mouse */
+}
+
+/* Carrusel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+
+/* Carrusel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Product Detail */
+.product-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.product-gallery img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-info {
+    text-align: center;
+    max-width: 500px;
+}
+
+@media (min-width: 768px) {
+    .product-detail {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+    }
+    .product-info {
+        text-align: left;
+    }
+}
+
+/* --- Product Detail Page --- */
+.product-detail-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.product-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: var(--card-bg-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.thumbnail-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnail-image:hover {
+    border-color: var(--accent-color);
+}
+
+.product-details {
+    text-align: center;
+}
+
+.product-details h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.product-description {
+    text-align: left;
+    white-space: pre-wrap;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+    .product-info-wrapper {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .product-details {
+        text-align: left;
+    }
+}
+/* --- Estilos del Footer --- */
+/* --- Estilos del Footer --- */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea todo el contenido a la izquierda */
+    gap: 5px; /* Las palabras se acercan con este valor */
+    padding: 5px 20px; /* La franja se acorta con este valor */
+    background-color: #ff69b4;
+    color: white;
+    margin-top: 20px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+footer p, footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los ítems de contacto a la izquierda */
+    gap: 10px; /* Acorta el espacio entre el correo y el número */
+}
+
+.contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-item a {
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #ddd;
+}
+
+.footer-icon {
+    font-size: 1.4rem;
+}
+
+.footer-nav a {
+    font-weight: 600;
+}
+
+
+
+
+
+
+/* Estilos para el encabezado y la navegación */
+
+/* --- Estilos del Encabezado --- */
+header {
+    background-color: #ff69b4;
+    color: #ffeaea;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a, .logo h1 {
+    text-decoration: none;
+    color: #fff6f6;
+    font-size: 2.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fffefe;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+
+
+
+nav ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Esto hace que los elementos se muestren en fila */
+    gap: 5px; /* Espacio entre los elementos de la lista */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff2f2;
+    font-weight: bold;
+    display: flex; /* Para alinear el icono y el texto */
+    align-items: center;
+    gap: 5px; /* Espacio entre el icono y el texto */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+
+
+/* Esto es un ejemplo, reemplaza 'clase-de-imagen-del-carrito' con la clase de tu código */
+.clase-de-imagen-del-carrito {
+    width: 100px; /* Le das un ancho fijo */
+    height: 100px; /* Le das un alto fijo */
+    object-fit: contain; /* ¡Aquí está la solución! */
+  }
+
+  .clase-de-imagen-del-carrito {
+    max-width: 100%;
+    height: auto; /* Mantener la proporción automáticamente */
+  }

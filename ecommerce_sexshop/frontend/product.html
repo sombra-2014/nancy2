@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="product-title">Producto</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo">Tienda Seducción</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="cart.html">Carrito</a>
+            <a href="admin.html" id="admin-link" style="display: none;">Admin</a>
+            <a href="login.html" id="login-link">Iniciar Sesión</a>
+            <a href="#" id="logout-link" style="display: none;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main id="product-detail-container">
+        <div class="product-detail">
+            <div class="product-image-gallery">
+                <img id="main-product-image" src="" alt="Imagen principal del producto">
+                <div id="thumbnail-gallery">
+                    </div>
+            </div>
+            <div class="product-info">
+                <h2 id="product-name"></h2>
+                <p id="product-description"></p>
+                <p class="price-detail"><strong>$<span id="product-price"></span></strong></p>
+                <p id="product-stock"></p>
+                <button id="add-to-cart-btn" class="add-to-cart-btn">Añadir al Carrito</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tienda Seducción. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/product.js"></script>
+    <script>
+        const loginLink = document.getElementById('login-link');
+        const logoutLink = document.getElementById('logout-link');
+        const adminLink = document.getElementById('admin-link');
+
+        function updateAuthLinks() {
+            if (localStorage.getItem('userToken')) {
+                loginLink.style.display = 'none';
+                logoutLink.style.display = 'block';
+                if (localStorage.getItem('isAdmin') === 'true') {
+                    adminLink.style.display = 'block';
+                } else {
+                    adminLink.style.display = 'none';
+                }
+            } else {
+                loginLink.style.display = 'block';
+                logoutLink.style.display = 'none';
+                adminLink.style.display = 'none';
+            }
+        }
+        
+        logoutLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            localStorage.removeItem('userToken');
+            localStorage.removeItem('isAdmin');
+            updateAuthLinks();
+            alert('Has cerrado sesión.');
+        });
+        
+        updateAuthLinks();
+    </script>
+</body>
+</html>

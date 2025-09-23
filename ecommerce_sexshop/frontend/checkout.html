@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Tu Tienda Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">Tu Tienda</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cart.html" id="cart-link">Carrito</a></li>
+                <li><a href="orders.html">Pedidos</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="cart">
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items" class="cart-items">
+                </div>
+            <div id="cart-total-container">
+                <h3>Total: $<span id="cart-total">0.00</span></h3>
+            </div>
+        </section>
+
+        <section id="checkout-info">
+            <h2>Información de Envío y Contacto</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="customer-name">Tu nombre:</label>
+                    <input type="text" id="customer-name" name="customer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-email">Tu email o WhatsApp:</label>
+                    <input type="text" id="customer-email" name="customer-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje para el vendedor (opcional):</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" id="finalize-purchase-btn">Finalizar Compra</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tu Tienda Online</p>
+    </footer>
+
+    <script src="js/cart.js"></script>
+</body>
+</html>
