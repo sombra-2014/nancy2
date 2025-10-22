@@ -6,7 +6,7 @@ from flask_cors import CORS
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-
+from flask import Flask, render_template
 app = Flask(__name__)
 CORS(app)
 
@@ -394,7 +394,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Hola desde Render"
-
-if __name__ == '__main__':
-    app.run()
+     return render_template('index.html')
